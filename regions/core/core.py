@@ -297,20 +297,22 @@ class RegionMeta(dict):
     """
     A python dictionary subclass which holds the meta attributes of the region.
     """
-    valid_keys = ['label', 'symbol', 'include', 'frame', 'range', 'veltype', 'restfreq', 'tag', 'comment']
+    valid_keys = ['label', 'symbol', 'include', 'frame', 'range', 'veltype', 'restfreq', 'tag', 'comment', 'coord',
+                  'name', 'select', 'highlite', 'fixed', 'edit', 'move', 'rotate', 'delete', 'source', 'background',
+                  ]
 
     key_mapping = {'point': 'symbol', 'text': 'label'}
 
     def __setitem__(self, key, value):
         key = self.key_mapping.get(key, key)
         if key in self.valid_keys:
-            self[key] = value
+            super().__setitem__(key, value)
         else:
             raise KeyError("{} is not a valid meta key for region.".format(key))
 
     def __getitem__(self, item):
         item = self.key_mapping.get(item, item)
-        return self[item]
+        return super().__getitem__(item)
 
 
 class RegionVisual(dict):
@@ -318,17 +320,17 @@ class RegionVisual(dict):
     A python dictionary subclass which holds the visual attributes of the region.
     """
     valid_keys = ['color', 'dash', 'font', 'dashlist', 'symsize', 'symthick', 'fontsize', 'fontstyle', 'usetex',
-                  'labelpos', 'labeloff', 'linewidth', 'linestyle', 'fill']
+                  'labelpos', 'labeloff', 'linewidth', 'linestyle', 'fill', 'line']
 
     key_mapping = {'width': 'linewidth'}
 
     def __setitem__(self, key, value):
         key = self.key_mapping.get(key, key)
         if key in self.valid_keys :
-            self[key] = value
+            super().__setitem__(key, value)
         else:
             raise KeyError("{} is not a valid visual meta key for region.".format(key))
 
     def __getitem__(self, item):
         item = self.key_mapping.get(item, item)
-        return self[item]
+        return super().__getitem__(item)
