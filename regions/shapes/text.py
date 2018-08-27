@@ -71,14 +71,14 @@ class TextPixelRegion(PointPixelRegion):
         origin : array_like, optional
             The ``(x, y)`` pixel position of the origin of the displayed image.
             Default is (0, 0).
-        ax : `~matplotlib.axes`, optional
+        ax : `~matplotlib.axes.Axes`, optional
             Axes
-        kwargs: `dict`
+        kwargs : `dict`
             keywords that a `~matplotlib.text.Text` accepts
 
         Returns
         -------
-        ax : `~matplotlib.axes`
+        ax : `~matplotlib.axes.Axes`
             The axes with the text.
         """
         import matplotlib.pyplot as plt

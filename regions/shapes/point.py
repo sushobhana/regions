@@ -97,7 +97,7 @@ class PointPixelRegion(PixelRegion):
         origin : array_like, optional
             The ``(x, y)`` pixel position of the origin of the displayed image.
             Default is (0, 0).
-        kwargs: dict
+        kwargs : `dict`
             All keywords that a `~matplotlib.patches.Circle` object accepts
 
         Returns
@@ -123,10 +123,15 @@ class PointPixelRegion(PixelRegion):
         origin : array_like, optional
             The ``(x, y)`` pixel position of the origin of the displayed image.
             Default is (0, 0).
-        ax: `~matplotlib.axes`, optional
+        ax : `~matplotlib.axes.Axes`, optional
             Axes on which the point is added
-        kwargs: dict
+        kwargs : `dict`
             All keywords that a ``Line2D`` object accepts
+
+        Returns
+        -------
+        ax : `~matplotlib.axes.Axes`
+            Axes on which the patch is added.
         """
         from matplotlib import pyplot as plt
         from matplotlib.lines import Line2D
